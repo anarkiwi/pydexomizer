@@ -1,0 +1,72 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pydexomizer"
+version = "0.1.0"
+description = "Pure-Python decompressor for Commodore exomizer data (raw, mem, level, sfx)."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+authors = [{ name = "Josh Bailey", email = "josh@overlyspecific.com" }]
+keywords = ["exomizer", "commodore", "c64", "decompression", "6502", "prg"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Archiving :: Compression",
+]
+dependencies = [
+    "numpy>=1.24",
+    "py65>=1.1",
+]
+
+[project.optional-dependencies]
+speedup = ["numba>=0.59"]
+test = [
+    "pytest>=7",
+    "pytest-xdist>=3",
+    "pytest-cov>=4",
+    "numba>=0.59",
+]
+
+[project.scripts]
+pydexomizer = "pydexomizer.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/anarkiwi/pydexomizer"
+Repository = "https://github.com/anarkiwi/pydexomizer"
+Issues = "https://github.com/anarkiwi/pydexomizer/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pydexomizer"]
+
+[tool.pytest.ini_options]
+addopts = "-n auto -q"
+testpaths = ["tests"]
+
+[tool.black]
+target-version = ["py311"]
+
+[tool.pylint.main]
+disable = [
+    "too-many-locals",
+    "too-many-branches",
+    "too-many-statements",
+    "too-many-return-statements",
+    "too-many-arguments",
+    "too-many-positional-arguments",
+    "too-many-nested-blocks",
+    "invalid-name",
+    "duplicate-code",
+]
+
+[tool.coverage.run]
+source = ["pydexomizer"]
