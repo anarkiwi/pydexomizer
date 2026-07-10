@@ -1,7 +1,8 @@
 # syntax=docker/dockerfile:1
 
 # Stage 1: build the reference exomizer binary (cacheable dependency layer).
-FROM debian:stable-slim AS exobuild
+# Uses the same base image as the test stage so the binary's glibc matches.
+FROM python:3.12-slim AS exobuild
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential git bison flex ca-certificates \
     && rm -rf /var/lib/apt/lists/*
