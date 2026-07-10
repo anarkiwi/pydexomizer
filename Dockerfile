@@ -2,7 +2,7 @@
 
 # Stage 1: build the reference exomizer binary (cacheable dependency layer).
 # Uses the same base image as the test stage so the binary's glibc matches.
-FROM python:3.12-slim AS exobuild
+FROM python:3.14-slim AS exobuild
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential git bison flex ca-certificates \
     && rm -rf /var/lib/apt/lists/*
@@ -10,7 +10,7 @@ RUN git clone https://bitbucket.org/magli143/exomizer.git /exomizer
 RUN cd /exomizer/src && make exomizer
 
 # Stage 2: install the package and run the pytest + coverage suite.
-FROM python:3.12-slim AS test
+FROM python:3.14-slim AS test
 COPY --from=exobuild /exomizer/src/exomizer /usr/local/bin/exomizer
 ENV EXOMIZER=/usr/local/bin/exomizer
 WORKDIR /app
