@@ -59,7 +59,7 @@ bytes themselves are stored reversed.
 
 Self-extracting PRGs embed a 6502 decrunch stub. pydexomizer decodes them the
 same way the reference `desfx` command does: by emulating the stub rather than
-re-implementing it. Using a py65 6502 CPU:
+re-implementing it. Using a jennings 6502 CPU:
 
 1. Load the PRG payload into a 64 KiB RAM image at its load address.
 2. Set `mem[1] = 0x37` (default C64 bank configuration).

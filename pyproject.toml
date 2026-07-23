@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pydexomizer"
-version = "0.1.0"
+version = "0.1.1"
 description = "Pure-Python decompressor for Commodore exomizer data (raw, mem, level, sfx)."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -25,7 +25,7 @@ classifiers = [
 ]
 dependencies = [
     "numpy>=1.24",
-    "py65>=1.1",
+    "jennings>=0.1",
 ]
 
 [project.optional-dependencies]
