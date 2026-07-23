@@ -1,13 +1,13 @@
 """Self-extracting (sfx) PRG decompression.
 
 Replicates ``decrunch_sfx`` from src/desfx.c of the reference exomizer by
-running the 6502 sfx stub on a py65 CPU emulator and tracing the writes it
+running the 6502 sfx stub on a jennings CPU emulator and tracing the writes it
 makes, then returning the largest contiguous written region as the output.
 """
 
 from collections import namedtuple
 
-from py65.devices.mpu6502 import MPU
+from jennings.devices.mpu6502 import MPU
 
 from .basic import find_sys
 
