@@ -7,7 +7,7 @@ name = "pydexomizer"
 version = "0.1.1"
 description = "Pure-Python decompressor for Commodore exomizer data (raw, mem, level, sfx)."
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.12"
 license = "Apache-2.0"
 license-files = ["LICENSE"]
 authors = [{ name = "Josh Bailey", email = "josh@overlyspecific.com" }]
@@ -18,7 +18,6 @@ classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Topic :: System :: Archiving :: Compression",
@@ -53,7 +52,7 @@ addopts = "-n auto -q"
 testpaths = ["tests"]
 
 [tool.black]
-target-version = ["py311"]
+target-version = ["py312"]
 
 [tool.pylint.main]
 disable = [
